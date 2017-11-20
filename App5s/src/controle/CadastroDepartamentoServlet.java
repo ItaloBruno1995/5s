@@ -30,13 +30,13 @@ public class CadastroDepartamentoServlet extends HttpServlet {
 		String acao = request.getParameter("acao");
 		String empresa = request.getParameter("empresa");
 	
-		System.out.println("ACAO RECEBIDA: "+acao );
-		System.out.println("EMPRESA RECEBIDA: "+empresa );
+		System.out.println("ACAO RECEBIDA 01: "+acao );
+		System.out.println("EMPRESA RECEBIDA 01: "+empresa );
 
 		HttpSession sessaoUsuario = request.getSession();
 		
 		String usuarioLogado = (String) sessaoUsuario.getAttribute("usuarioSessao");
-		System.out.println("USUARIO LOGADO PRA LISTAR DEPARTAMENTO: "+empresa );
+		System.out.println("USUARIO LOGADO PRA LISTAR DEPARTAMENTO: "+usuarioLogado );
 		
 		//COLOCAR EMPRESA NA SESSÃO:
 		
@@ -65,9 +65,8 @@ public class CadastroDepartamentoServlet extends HttpServlet {
 
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String empresa = request.getParameter("empresa");
 		HttpSession sessaoUsuario = request.getSession();
-		HttpSession sessaoEmpresa = request.getSession();
-		
 		BeanDepartamento departamento = new BeanDepartamento();
 		DaoDepartamento daodepartamento = new DaoDepartamento();
 		//RECEBENDO PARAMETROS:usuarioSessao
@@ -75,13 +74,16 @@ public class CadastroDepartamentoServlet extends HttpServlet {
 		departamento.setDataCriado(request.getParameter("data"));
 		departamento.setNome(request.getParameter("nome"));
 		String usuarioSessao = (String) sessaoUsuario.getAttribute("usuarioSessao");
-		//COLOCAR EMPRESA NA SESSÃO:
-		String empresaSessao= (String) sessaoEmpresa.getAttribute("sessaoEmpresa");
 		
-		System.out.println("EMPRESA NA SESSÃO: "+empresaSessao);
+		
+		System.out.println(" EMPRESA RECEBIDA PARA FAZER CADASTRO DE DEPARTAMEMNTO:"+ empresa );
+		
+		System.out.println("EMPRESA NA SESSÃO: "+empresa);
+		
+		//Departamento ainda nao foi cadastrado
 		try {
 			
-			daodepartamento.cadastroDepartamento(departamento, empresaSessao, usuarioSessao);
+			daodepartamento.cadastroDepartamento(departamento, empresa, usuarioSessao);
 			
 			//REDIRECIONAR PARA TELA DE QUESTIONARIO:
 			

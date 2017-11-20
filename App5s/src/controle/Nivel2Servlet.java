@@ -110,7 +110,7 @@ public class Nivel2Servlet extends HttpServlet {
 				// ENVIO DOS DADOS:
 				nivel.sistematizacao(d1, d2, d3, usuarioLogado, empresa);
 				// REDIRECIONAMENTO PARA PROXIMO FORMULARIO:
-				RequestDispatcher visualizar = request.getRequestDispatcher("autenticacao/sistematizacao.jsp");
+				RequestDispatcher visualizar = request.getRequestDispatcher("autenticacao/semsujeira.jsp");
 				visualizar.forward(request, response);
 
 				// SISTEMATIZACAO

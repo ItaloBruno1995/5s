@@ -7,8 +7,8 @@ public class SingleConnection {
 
 	
 	
-	private static String banco="jdbc:mysql://localhost:3306/5s?autoReconnect=true";
-	private static String senha="";
+	private static String banco="jdbc:mysql://node147779-app5s.jelasticlw.com.br/5s?autoReconnect=true";
+	private static String senha="EPQbpg00564";
 	private static String use="root";
 	private static Connection connection = null;
 	

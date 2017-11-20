@@ -104,7 +104,7 @@ public class Nivel3Servlet extends HttpServlet {
 		// ENVIO DOS DADOS:
 		nivel.semSujeira(d1, d2, d3, usuarioLogado, empresa);
 		// REDIRECIONAMENTO PARA PROXIMO FORMULARIO:
-		RequestDispatcher visualizar = request.getRequestDispatcher("autenticacao/semsujeira.jsp");
+		RequestDispatcher visualizar = request.getRequestDispatcher("autenticacao/saude.jsp");
 		visualizar.forward(request, response);
 
 		// SISTEMATIZACAO

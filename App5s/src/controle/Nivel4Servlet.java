@@ -101,15 +101,15 @@ public class Nivel4Servlet extends HttpServlet {
 		}
 
 		if (request.getParameter("p4").equalsIgnoreCase("1")) {
-			d3 = 0;
+			d4 = 0;
 		} else if (request.getParameter("p4").equalsIgnoreCase("2")) {
-			d3 = 0;
+			d4 = 0;
 		} else if (request.getParameter("p4").equalsIgnoreCase("3")) {
-			d3 = 10;
+			d4 = 10;
 		} else if (request.getParameter("p4").equalsIgnoreCase("4")) {
-			d3 = 6;
+			d4 = 6;
 		} else if (request.getParameter("p4").equalsIgnoreCase("5")) {
-			d3 = 8;
+			d4 = 8;
 		} else {
 			// CASO TODOS NULOS RETORNAR PARA PAGINA NOVAMENTE
 			RequestDispatcher visualizar = request.getRequestDispatcher("autenticacao/saude.jsp");
@@ -119,10 +119,10 @@ public class Nivel4Servlet extends HttpServlet {
 		// ADICIONAR TRY CATH
 
 		// ENVIO DOS DADOS:
-
+System.out.println("VALOR D1"+d1+ " VALOR D2: "+d2+ " VALOR D3:"+d3+" VALOR D4:"+d4);
 		nivel.saude(d1, d2, d3, d4, usuarioLogado, empresa);
 		// REDIRECIONAMENTO PARA PROXIMO FORMULARIO:
-		RequestDispatcher visualizar = request.getRequestDispatcher("autenticacao/saude.jsp");
+		RequestDispatcher visualizar = request.getRequestDispatcher("autenticacao/socializacao.jsp");
 		visualizar.forward(request, response);
 
 		// SISTEMATIZACAO

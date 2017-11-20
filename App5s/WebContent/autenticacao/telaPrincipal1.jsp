@@ -19,7 +19,7 @@
 			Empresa</button></a>
 	<br>
 	<br>
-	<button>Sobre</button>
+	<a	href="index.jsp"><button >Sobre</button>
 	<br>
 	</header>
 	<div class="form-style-10">

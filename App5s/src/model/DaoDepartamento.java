@@ -80,6 +80,8 @@ public class DaoDepartamento {
 	
 	public void cadastroDepartamento(BeanDepartamento  departamento , String empresaSessao, String usuarioLogado){
 		try {
+			
+			System.out.println("CHAMOU O DAO PARA CADASTRA DEPARTAMENTO");
 			PreparedStatement stmt = connection.prepareStatement("insert into departamento(nome, dataCriado, idUsuario, total, empresa, seiri, seiton, seiso, seiketsu, shitsuke) value(?,?,?,?,?,?,?,?,?,?)");
 			stmt.setString(1, departamento.getNome());
 			stmt.setString(2, departamento.getDataCriado());

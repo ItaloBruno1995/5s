@@ -19,11 +19,14 @@
 			Departamento</button></a>
 	<br>
 	<br>
-	<a href=""><button>Voltar</button></a>
+	<a href="javascript:window.history.go(-1)"><button>Voltar</button></a>
 	<br>
 	</header>
 	<div class="form-style-10">
 		<br>
+		<%int contador = 0;
+			double somatorio = 0;	
+		%>
 		
 <% List <BeanDepartamento> listaDepartamento =(List<BeanDepartamento>) request.getAttribute("departamentos"); 
 %>
@@ -42,18 +45,20 @@
 			<%for(BeanDepartamento departamento : listaDepartamento){ %>
 				<tr>
 					<td><%= departamento.getId()%></td>
-					<td><a href="index.jsp"><%= departamento.getNome()%></a></td>
+					<td><a href="MostraDadosServlet?departamento=<%=departamento.getNome()%>"><%= departamento.getNome()%></a></td>
 					<td><%=departamento.getDataCriado() %></td>
 					<!-- Bucar dados em outra tabela -->
 					<td><%=departamento.getTotal()%>%</td>
 					
+					<% contador++;
+					somatorio= somatorio +departamento.getTotal(); %>
 				</tr>
 				<%} %>
 
 			</tbody>
 		</table>
 		
-		<br> <b>Média Geral: </b><br>
+		<br> <b>Média Geral: <%=somatorio/contador%></b><br>
 		<br> <b>Situação:</b>
 		<table class="tabela" style="margin: -60px 100px">
 			<tbody>

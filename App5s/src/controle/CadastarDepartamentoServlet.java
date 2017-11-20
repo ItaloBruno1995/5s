@@ -33,23 +33,30 @@ public class CadastarDepartamentoServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(" ENTROU NO DO POST PARA CADASTRA DEPARTAMENTO");
+		System.out.println(" ENTROU NO DO POST PARA CADASTRA DEPARTAMENTO 02");
 		//RECUPERANDO SESSÃO DE USUARIO E EMPRESA
 		HttpSession sessaoUsuario = request.getSession();
 		String usuarioLogado = (String) sessaoUsuario.getAttribute("usuarioSessao");
+		
 		HttpSession sessaoEmpresa= request.getSession();
-		String empresa = (String) sessaoEmpresa.getAttribute("empresaSessao");
+		String empresa = (String) sessaoEmpresa.getAttribute("empresaSessao");	
 		
 		//RECEBENDO PARAMENTRO:
 		BeanDepartamento departamento = new BeanDepartamento();
 		DaoDepartamento daoDepartamento = new DaoDepartamento();
 		String acao = request.getParameter("acao");
-		System.out.println(" ACAO RECEBIDA PARA DEPARTAMENTO: "+acao);
+		
+		System.out.println(" EMPRESA RECEBIDA PARA DEPARTAMENTO 2*: "+empresa);
 		System.out.println("USUARIO LOGADO PRA CADASTRA DEPARTAMENTO: "+usuarioLogado);
 		
 	departamento.setDataCriado(request.getParameter("data"));
 	departamento.setNome(request.getParameter("nome"));
+			
 	
+	HttpSession sessaoDepartamento = request.getSession();
+	 sessaoDepartamento.setAttribute("sessaoDepartamento",request.getParameter("nome"));
+
+		System.out.println("NOME DEPARTAMENTO QUE VAI PARA SESAO: "+sessaoDepartamento.getAttribute("sessaoDepartamento"));
 		
 		if(acao.equalsIgnoreCase("cadastrar")){
 			daoDepartamento.cadastroDepartamento(departamento, empresa, usuarioLogado);
